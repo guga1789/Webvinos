@@ -1,36 +1,22 @@
-// Web hecha con AlexCG Design, si te sirvió la plantilla por favor entra a AlexCG Design
-// esta plantilla es libre para usar, así como otras plantillas más que tenemos en el canal...
-// ->>>> https://www.youtube.com/alexcgdesign <<<<-
-let boton = document.getElementById("icono");
-let enlaces = document.getElementById("enlaces");
-let contador = 0;
+const tablet = window.matchMedia('screen and (max-width:767px)')
+const menu = document.querySelector('.menu');
+const burgerButton = document.querySelector('#burger-menu');
+burgerButton.addEventListener('click', hideShow);
+tablet.addListener(validation);
 
-boton.addEventListener("click",function(){
-    if(contador == 0){
-        enlaces.className = ('enlaces dos');
-        contador=1;
-    }else{
-        enlaces.classList.remove('dos');
-        enlaces.className = ('enlaces uno');
-        contador = 0;
+function validation(event) {
+    if (event.matches) {
+        burgerButton.addEventListener('click', hideShow);
+    } else {
+        burgerButton.removeEventListener('click', hideShow);
     }
-})
+}
 
-window.addEventListener('resize', function(){
-    if(screen.width > 750){
-        contador=0;
-        enlaces.classList.remove('dos');
-        enlaces.className = ('enlaces uno');
-
+function hideShow() {
+    if (menu.classList.contains('is-active')) {
+        menu.classList.remove('is-active');
+    } else {
+        menu.classList.add('is-active');
     }
-})
-
-window.addEventListener('click',function(e){
-    console.log(e.target);
-    if(cerrado==false){
-        let span = document.querySelector('.links-header');
-        if(e.target == span){
-            contador=0;
-        }
-    }
-});
+    validation(tablet);
+}
