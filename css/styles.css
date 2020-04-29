@@ -143,8 +143,10 @@ header {
     text-decoration: none;
     font-family: 'Comfortaa', cursive;
     margin-top: 15px;
+    border-radius: 
 }
 /*final seccion nosotros*/
+
 /*estilos animaciones seccion nosotros*/
 .bounceInLeft {
   animation-duration: 2s;
@@ -152,6 +154,124 @@ header {
 .bounceInRight {
   animation-duration: 2s;
 } 
+
+/*Comienzo de la galeria de vinos*/
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background:rgba(239,184,16, 0.781);
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: .5s ease;
+}
+.overlay h2{
+    color: #fff;
+    font-weight: 300;
+    font-size:30px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.imagen:hover .overlay{
+    height:100%;
+    cursor: pointer;
+}
+.contenedor-galeria {
+    margin:10px 0 5px 0;
+    display: flex;
+    /* el contenedor/div se comporta como un bloque */
+    justify-content: space-around;
+    /* hace que los elementos tengan la misma distancia alrededor */
+    flex-wrap: wrap;
+    /* le dice a los elementos que se ubiquen en varias líneas si no entran en todos en una */
+}
+.event-list {
+    margin:10px 0 5px 0;
+    display: flex;
+    /* el contenedor/div se comporta como un bloque */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* hace que los elementos tengan la misma distancia alrededor */
+    padding-top: 50px;
+}
+.event-image {
+    width: 280px;
+    height: 440px;
+    transition: .2s;
+    border-radius: 1em;
+}
+.event-image:hover {
+    transform: scale(1.05);
+    transition: .5s;
+}
+/*Final de la galeria de vinos*/
+
+/*Comienzo Pedidos*/
+.contenedor-banner2 {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.video-texto {
+    object-fit: cover;
+    filter: brightness(60%);
+    cursor: pointer;
+    animation: escalar 1.5s infinite alternate;
+}
+@keyframes escalar{
+    to {
+        transform: scale(1);
+    }
+    from {
+        transform: scale(1.05);
+    }
+}
+.video-texto:hover {
+    filter: brightness(100%);
+}
+/*Fin pedidos*/
+/*Inicio seccion promociones*/
+.slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+/*Fin seccion Promociones*/
+
 /* ------------------------------------------------- Media Queries ---------------------------------------------------------------- */
 
 @media screen and (max-width: 768px) {
@@ -229,24 +349,61 @@ header {
         border-bottom: none!important;
         transition: 0.7s ease-out;
     }
-     .video-texto h2 {
-    font-size: 1rem; 
-    white-space: nowrap; 
-}
-.video-texto h1 {
-    font-size: 1.2rem;
-    
-}
-.video-texto p {
-    font-size: 0.8rem;
-    
-}
-.btn {
-    cursor: pointer;
-   font-size: 0.5rem;
-   padding: 0.65rem 0.6rem;
-} 
-
+    .video-texto h2 {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+    .video-texto h1 {
+        font-size: 1.2rem;
+    }
+    .video-texto p {
+        font-size: 0.8rem;
+    }
+    .btn {
+        cursor: pointer;
+        font-size: 0.5rem;
+        padding: 0.65rem 0.6rem;
+    }
+    .video-texto .linea {
+        width: 400px;
+        margin: auto;
+        height: 3px;
+        background-color: #efb810;
+        margin-bottom: 20px;
+    }
+     .contenedor-imagenes{
+        width: 90%;
+    }
+    .contenedor-imagenes .imagen{
+        width: 48%;
+    }
+    .texto-pedidos {
+        font-size: 0.5rem;
+    }
+    .texto-pedidos1 {
+        font-size: 1rem;
+    }
+    .contenedor-works {
+        display: block;
+    }
+    .event {
+        align-items: center;
+        /* los elementos se agrupan en el medio de la caja */
+    }
+    .event-list {
+        padding-top: 0px;
+        flex-wrap: wrap;
+        /* le dice a los elementos que se ubiquen en varias líneas si no entran en todos en una */
+    }
+    .event-image {
+        justify-content: center;
+        /* centra los elementos */
+        width: 300px;
+        height: auto;
+    }
+    .event-image:hover {
+        transform: none;
+    }
 }
 @media (min-width: 769px) and (max-width: 963px) {
     .logo-titulo {
@@ -262,20 +419,50 @@ header {
         font-size: 1em;
     }
     .video-texto h2 {
-    font-size: 1.7rem;
-    
+        font-size: 1.7rem;
+    }
+    .video-texto h1 {
+        font-size: 2rem;
+    }
+    .video-texto p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        font-size: 0.6rem;
+        padding: 0.5rem 1rem;
+    }
+      .video-texto .linea {
+        width: 200px;
+        margin: auto;
+        height: 3px;
+        background-color: #efb810;
+        margin-bottom: 20px;
+    }
+    .contenedor-imagenes{
+        width: 95%;
+    }
+    .contenedor-works {
+        display: block;
+    }
+    .event {
+        align-items: center;
+        /* los elementos se agrupan en el medio de la caja */
+    }
+    .event-list {
+        padding-top: 0px;
+        flex-wrap: wrap;
+        /* le dice a los elementos que se ubiquen en varias líneas si no entran en todos en una */
+    }
+    .event-image {
+        justify-content: center;
+        /* centra los elementos */
+        width: 300px;
+        height: auto;
+    }
+    .event-image:hover {
+        transform: none;
+    }
 }
-.video-texto h1 {
-    font-size: 2rem;
-   
-}
-.video-texto p {
-    font-size: 0.9rem;
-    
-}
-.btn {
-    
-    font-size: 0.6rem;
-   padding: 0.5rem 1rem;
-}
-}
+
+
+
